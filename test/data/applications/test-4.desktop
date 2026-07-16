@@ -1,0 +1,4 @@
+[Desktop Entry]
+Name=Test 4 (with Exec and Hidden)
+Exec=ls
+Hidden=true

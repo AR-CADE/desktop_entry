@@ -1,0 +1,5 @@
+[Desktop Entry]
+Name=Test 5 (with non-existing Exec and TryExec)
+Type=Application
+Exec=doesnotexist1234
+TryExec=doesnotexist1234

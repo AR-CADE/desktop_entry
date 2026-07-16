@@ -1,0 +1,21 @@
+[Desktop Entry]
+Name=Test 3 (with Actions and localized names)
+Name[en]=Test English
+Name[ru]=Тест Русский
+Name[ar]=اختبار عربي
+Name[zh_CN]=测试中文
+Name[zh_TW]=測試中文
+Name[fr]=Test French
+Type=Application
+Exec=ls
+Actions=Action1;
+
+[Desktop Action Action1]
+Name=Action 1
+Name[en]=Action 1 EN
+Name[ru]=Действие 1 РУ
+Name[ar]=1 إجراء
+Name[zh_CN]=動作中文
+Name[zh_TW]=動作中文
+Name[fr]=Action 1 FR
+Exec=ls

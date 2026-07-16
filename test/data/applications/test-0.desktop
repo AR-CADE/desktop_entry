@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Test 0 (with Icon)
+Exec=test
+TryExec=test
+Icon=application
+Type=Application
+DesktopNames=Test;Test
