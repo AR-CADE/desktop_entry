@@ -1,6 +1,6 @@
 # desktop_entry
 
-A Dart library that implements the [Freedesktop Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry/latest/).
+A Dart library that implements the freedesktop [Desktop Entry Specification](https://specifications.freedesktop.org/desktop-entry/latest/).
 
 # (re)generate serializers
 
@@ -12,7 +12,7 @@ run:
 
 [![screenshot](https://github.com/AR-CADE/desktop_entry/raw/main/assets/screenshot-coverage.png?raw=true "coverage")](https://github.com/AR-CADE/desktop_entry/raw/main/assets/screenshot-coverage.png?raw=true)
  
-to generate this html report, first install `lcov`, then run:
+to generate this html report, first install [`lcov`](https://github.com/linux-test-project/lcov), then run:
 
 ```
 
@@ -26,7 +26,9 @@ $ open coverage/html/index.html
 
 # note
 
- - As for now, only the "application" type is fully implemented
+ - As for now, only the type 1 (Application) is fully implemented
+ - type 2 (Link) and type 3 (Directory) are partially implemented
+ 
 
 # contact
 
