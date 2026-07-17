@@ -131,6 +131,21 @@ void main() {
       expect(copied.name, 'name_test2');
       expect(copied.type, 'type_test');
       expect(copied.url, 'url_test');
+
+      final copied2 = copied.copyWith(type: 'type_test2');
+      expect(copied2.name, 'name_test2');
+      expect(copied2.type, 'type_test2');
+      expect(copied2.url, 'url_test');
+
+      final copied3 = link.copyWith();
+      expect(copied3.name, 'name_test');
+      expect(copied3.type, 'type_test');
+      expect(copied3.url, 'url_test');
+
+      expect(
+        link.copyWith(),
+        link,
+      );
     });
   });
 }

@@ -1,21 +1,49 @@
 [Desktop Entry]
 Name=Test 3 (with Actions and localized names)
-Name[en]=Test English
-Name[ru]=Тест Русский
-Name[ar]=اختبار عربي
-Name[zh_CN]=测试中文
-Name[zh_TW]=測試中文
-Name[fr]=Test French
+Name[en]=Test - English
+Name[ru]=Тест - Русский
+Name[ar]=اختبار - العربية
+Name[zh_CN]=测试 - 中文
+Name[zh_TW]=测试 - 中文
+Name[ko]=테스트 - 한국의
+Name[jp]=テスト - 日本語
+Name[es]=Test - Español
+Name[it]=Test - Italiano
+Name[pt]=Test - Português
+Name[de]=Test - Deutsch
+Name[wo]=Test - Wolof
 Type=Application
 Exec=ls
-Actions=Action1;
+Actions=Action1;Action2;
 
 [Desktop Action Action1]
 Name=Action 1
 Name[en]=Action 1 EN
-Name[ru]=Действие 1 РУ
-Name[ar]=1 إجراء
-Name[zh_CN]=動作中文
-Name[zh_TW]=動作中文
-Name[fr]=Action 1 FR
+Name[ru]=Действие 1 RU
+Name[ar]=الإجراء 1 AR
+Name[zh_CN]=行动 1 zh_CN
+Name[zh_TW]=行动 1 zh_TW
+Name[ko]=액션1 KO
+Name[jp]=アクション1 JP
+Name[es]=Acción 1 ES
+Name[it]=Azione 1 IT
+Name[pt]=Ação 1 PT
+Name[de]=Aktion 1 DE
+Name[wo]=Jëf 1 WO
+Exec=ls
+
+[Desktop Action Action2]
+Name=Action 2
+Name[en]=Action 2 EN
+Name[ru]=Действие 2 RU
+Name[ar]=الإجراء 2 AR
+Name[zh_CN]=行动 2 zh_CN
+Name[zh_TW]=行动 2 zh_TW
+Name[ko]=액션2 KO
+Name[jp]=アクション2 JP
+Name[es]=Acción 2 ES
+Name[it]=Azione 2 IT
+Name[pt]=Ação 2 PT
+Name[de]=Aktion 2 DE
+Name[wo]=Jëf 2 WO
 Exec=ls

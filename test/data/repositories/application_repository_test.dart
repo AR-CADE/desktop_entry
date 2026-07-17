@@ -16,7 +16,7 @@ void main() {
           'test/data/applications',
         ]);
 
-        expect(applications.length, 6);
+        expect(applications.length, 7);
 
         /// TEST 0
         final test0 = applications.firstWhere(
@@ -58,28 +58,58 @@ void main() {
         expect(test3.exec, 'ls');
         expect(test3.tryExec, null);
         expect(test3.type, 'Application');
-        expect(test3.actions, ['Action1']);
+        expect(test3.actions, ['Action1', 'Action2']);
         expect(test3.actions!.length, test3.desktopActions!.length);
         expect(test3.desktopNames, null);
 
         expect(test3.localizedName, {
-          'en': 'Test English',
-          'ru': 'Тест Русский',
-          'ar': 'اختبار عربي',
-          'zh_CN': '测试中文',
-          'zh_TW': '測試中文',
-          'fr': 'Test French',
+          'en': 'Test - English',
+          'ru': 'Тест - Русский',
+          'ar': 'اختبار - العربية',
+          'zh_CN': '测试 - 中文',
+          'zh_TW': '测试 - 中文',
+          'ko': '테스트 - 한국의',
+          'jp': 'テスト - 日本語',
+          'es': 'Test - Español',
+          'it': 'Test - Italiano',
+          'pt': 'Test - Português',
+          'de': 'Test - Deutsch',
+          'wo': 'Test - Wolof',
         });
         expect(test3.desktopActions, <DesktopAction>[
           const DesktopAction(
             name: 'Action 1',
             localizedName: {
               'en': 'Action 1 EN',
-              'ru': 'Действие 1 РУ',
-              'ar': '1 إجراء',
-              'zh_CN': '動作中文',
-              'zh_TW': '動作中文',
-              'fr': 'Action 1 FR',
+              'ru': 'Действие 1 RU',
+              'ar': 'الإجراء 1 AR',
+              'zh_CN': '行动 1 zh_CN',
+              'zh_TW': '行动 1 zh_TW',
+              'ko': '액션1 KO',
+              'jp': 'アクション1 JP',
+              'es': 'Acción 1 ES',
+              'it': 'Azione 1 IT',
+              'pt': 'Ação 1 PT',
+              'de': 'Aktion 1 DE',
+              'wo': 'Jëf 1 WO',
+            },
+            exec: 'ls',
+          ),
+          const DesktopAction(
+            name: 'Action 2',
+            localizedName: {
+              'en': 'Action 2 EN',
+              'ru': 'Действие 2 RU',
+              'ar': 'الإجراء 2 AR',
+              'zh_CN': '行动 2 zh_CN',
+              'zh_TW': '行动 2 zh_TW',
+              'ko': '액션2 KO',
+              'jp': 'アクション2 JP',
+              'es': 'Acción 2 ES',
+              'it': 'Azione 2 IT',
+              'pt': 'Ação 2 PT',
+              'de': 'Aktion 2 DE',
+              'wo': 'Jëf 2 WO',
             },
             exec: 'ls',
           ),
@@ -107,6 +137,47 @@ void main() {
         expect(test5.icon, null);
         expect(test5.type, 'Application');
         expect(test5.desktopNames, null);
+
+        /// TEST 6
+        final test6 = applications.firstWhere(
+          (app) => app.name.startsWith('Test 6'),
+        );
+        expect(test6.exec, 'test');
+        expect(test6.tryExec, 'test');
+        expect(test6.desktopActions, null);
+        expect(test6.icon, '');
+        expect(test6.type, 'Application');
+        expect(test6.desktopNames, ['Test', 'Test']);
+        expect(test6.genericName, 'Generic name');
+        expect(test6.comment, 'Comments');
+        expect(test6.localizedGenericName, {
+          'en': 'Generic name - English',
+          'ru': 'Родовое название - Русский',
+          'ar': 'الاسم العام - العربية',
+          'zh_CN': '通用名称 - 中文',
+          'zh_TW': '通用名稱 - 中文',
+          'ko': '일반 이름 - 한국의',
+          'jp': '一般名前 - 日本語',
+          'es': 'Nombre genérico - Español',
+          'it': 'Nome generico - Italiano',
+          'pt': 'Nome genérico - Português',
+          'de': 'Generischer Name - Deutsch',
+          'wo': 'Tur generik - Wolof',
+        });
+        expect(test6.localizedComment, {
+          'en': 'Comments - English',
+          'ru': 'Комментарии - Русский',
+          'ar': 'تعليقات - العربية',
+          'zh_CN': '评论 - 中文',
+          'zh_TW': '评论 - 中文',
+          'ko': '댓글 - 한국의',
+          'jp': 'コメント - 日本語',
+          'es': 'Comentarios - Español',
+          'it': 'Commenti - Italiano',
+          'pt': 'Comentários - Português',
+          'de': 'Kommentare - Deutsch',
+          'wo': 'Komànteer - Wolof',
+        });
       });
 
       test('with missing directory', () async {

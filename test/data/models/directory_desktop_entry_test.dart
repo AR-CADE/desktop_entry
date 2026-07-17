@@ -115,6 +115,21 @@ void main() {
       expect(copied.name, 'name_test2');
       expect(copied.type, 'type_test');
       expect(copied.icon, null);
+
+      final copied2 = copied.copyWith(type: 'type_test2');
+      expect(copied2.name, 'name_test2');
+      expect(copied2.type, 'type_test2');
+      expect(copied2.icon, null);
+
+      final copied3 = directory.copyWith();
+      expect(copied3.name, 'name_test');
+      expect(copied3.type, 'type_test');
+      expect(copied3.icon, null);
+
+      expect(
+        directory.copyWith(),
+        directory,
+      );
     });
   });
 }
