@@ -11,7 +11,6 @@ Name[es]=Test - Español
 Name[it]=Test - Italiano
 Name[pt]=Test - Português
 Name[de]=Test - Deutsch
-Name[wo]=Test - Wolof
 Type=Application
 Exec=ls
 Actions=Action1;Action2;
@@ -29,7 +28,6 @@ Name[es]=Acción 1 ES
 Name[it]=Azione 1 IT
 Name[pt]=Ação 1 PT
 Name[de]=Aktion 1 DE
-Name[wo]=Jëf 1 WO
 Exec=ls
 
 [Desktop Action Action2]
@@ -45,5 +43,4 @@ Name[es]=Acción 2 ES
 Name[it]=Azione 2 IT
 Name[pt]=Ação 2 PT
 Name[de]=Aktion 2 DE
-Name[wo]=Jëf 2 WO
 Exec=ls

@@ -74,7 +74,6 @@ void main() {
           'it': 'Test - Italiano',
           'pt': 'Test - Português',
           'de': 'Test - Deutsch',
-          'wo': 'Test - Wolof',
         });
         expect(test3.desktopActions, <DesktopAction>[
           const DesktopAction(
@@ -91,7 +90,6 @@ void main() {
               'it': 'Azione 1 IT',
               'pt': 'Ação 1 PT',
               'de': 'Aktion 1 DE',
-              'wo': 'Jëf 1 WO',
             },
             exec: 'ls',
           ),
@@ -109,7 +107,6 @@ void main() {
               'it': 'Azione 2 IT',
               'pt': 'Ação 2 PT',
               'de': 'Aktion 2 DE',
-              'wo': 'Jëf 2 WO',
             },
             exec: 'ls',
           ),
@@ -162,7 +159,6 @@ void main() {
           'it': 'Nome generico - Italiano',
           'pt': 'Nome genérico - Português',
           'de': 'Generischer Name - Deutsch',
-          'wo': 'Tur generik - Wolof',
         });
         expect(test6.localizedComment, {
           'en': 'Comments - English',
@@ -176,11 +172,16 @@ void main() {
           'it': 'Commenti - Italiano',
           'pt': 'Comentários - Português',
           'de': 'Kommentare - Deutsch',
-          'wo': 'Komànteer - Wolof',
         });
       });
 
       test('with missing directory', () async {
+        final application = applicationRepository.getApplication(
+          'test/data/missing_dir',
+        );
+
+        expect(application, null);
+
         final applications = await applicationRepository.getApplications([
           'test/data/missing_dir',
         ]);
