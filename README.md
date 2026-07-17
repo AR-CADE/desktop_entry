@@ -16,7 +16,7 @@ to generate this html report, first install `lcov`, then run:
 
 ```
 
-$ dart test --coverage=coverage
+$ dart test --coverage-path=coverage/lcov.info
 
 $ genhtml coverage/lcov.info -o coverage/html
 
