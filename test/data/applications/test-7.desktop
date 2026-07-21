@@ -1,0 +1,7 @@
+[Desktop Entry]
+Comment=Test 7 (without name property)
+Exec=test
+TryExec=test
+Icon=
+Type=Application
+DesktopNames=Test;Test

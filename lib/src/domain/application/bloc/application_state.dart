@@ -4,7 +4,6 @@ enum ApplicationStatus {
   initial,
   ready,
   loading,
-  error,
 }
 
 class ApplicationState extends Equatable {

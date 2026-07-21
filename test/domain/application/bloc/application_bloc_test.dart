@@ -28,7 +28,7 @@ void main() {
     });
 
     blocTest<ApplicationBloc, ApplicationState>(
-      'emits [loading, ready] when getApplications succeeds',
+      'emits [loading, ready] when getApplications',
       setUp: () {
         when(
           () => repository.getApplications(any()),
@@ -41,26 +41,6 @@ void main() {
       expect: () => const [
         ApplicationState(status: ApplicationStatus.loading),
         ApplicationState(status: ApplicationStatus.ready, applications: []),
-      ],
-    );
-
-    blocTest<ApplicationBloc, ApplicationState>(
-      'emits [loading, error] when getApplications throws',
-      setUp: () {
-        when(
-          () => repository.getApplications(any()),
-        ).thenThrow(Exception('oops'));
-      },
-      build: () => ApplicationBloc(
-        repository: repository,
-        directories: const ['/test'],
-      ),
-      expect: () => const [
-        ApplicationState(status: ApplicationStatus.loading),
-        ApplicationState(
-          status: ApplicationStatus.error,
-          message: 'Exception: oops',
-        ),
       ],
     );
   });

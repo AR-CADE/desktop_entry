@@ -41,104 +41,96 @@ class ApplicationRepository {
     final lines = file.readAsLinesSync();
     final entries = <String, dynamic>{};
 
-    try {
-      final config = Config.fromStrings(lines);
-      if (config.hasSection('Desktop Entry')) {
-        final options = config.options('Desktop Entry');
+    final config = Config.fromStrings(lines);
+    if (config.hasSection('Desktop Entry')) {
+      final options = config.options('Desktop Entry');
 
-        if (options != null) {
-          for (final key in options) {
-            final value = config.get('Desktop Entry', key);
+      if (options != null) {
+        for (final key in options) {
+          final value = config.get('Desktop Entry', key);
 
-            if (_isLocalizedProperty(key)) {
-              final extraction = _extractPropertyNameAndKey(key);
+          if (_isLocalizedProperty(key)) {
+            final extraction = _extractPropertyNameAndKey(key);
 
+            final n = extraction['propertyName'] as String?;
+
+            if (n != null) {
               final localizedProperty =
-                  entries['Localized${extraction['propertyName']}']
-                      as Map<String, dynamic>?;
+                  entries['Localized$n'] as Map<String, dynamic>?;
               final k = extraction['key'] as String?;
 
               if (k != null) {
                 if (localizedProperty != null) {
-                  try {
-                    final map = localizedProperty..putIfAbsent(k, () => value);
+                  final map = localizedProperty..putIfAbsent(k, () => value);
 
-                    entries['Localized${extraction['propertyName']}'] = map;
-                  } on Exception catch (e) {
-                    stderr.write(e);
-                  }
+                  entries['Localized$n'] = map;
                 } else {
-                  entries['Localized${extraction['propertyName']}'] =
-                      <String, dynamic>{
-                        k: value,
-                      };
+                  entries['Localized$n'] = <String, dynamic>{
+                    k: value,
+                  };
                 }
               }
-            } else {
-              entries[key] = value;
             }
+          } else {
+            entries[key] = value;
           }
         }
       }
+    }
 
-      final actions = <Map<String, dynamic>>[];
+    final actions = <Map<String, dynamic>>[];
 
-      for (final section in config.sections()) {
-        final action = <String, dynamic>{};
+    for (final section in config.sections()) {
+      final action = <String, dynamic>{};
 
-        if (section.startsWith('Desktop Action')) {
-          final options = config.options(section);
+      if (section.startsWith('Desktop Action')) {
+        final options = config.options(section);
 
-          if (options != null) {
-            for (final key in options) {
-              final value = config.get(section, key);
-              if (_isLocalizedProperty(key)) {
-                final extraction = _extractPropertyNameAndKey(key);
+        if (options != null) {
+          for (final key in options) {
+            final value = config.get(section, key);
+            if (_isLocalizedProperty(key)) {
+              final extraction = _extractPropertyNameAndKey(key);
 
+              final n = extraction['propertyName'] as String?;
+
+              if (n != null) {
                 final localizedProperty =
-                    action['Localized${extraction['propertyName']}']
-                        as Map<String, dynamic>?;
+                    action['Localized$n'] as Map<String, dynamic>?;
                 final k = extraction['key'] as String?;
 
                 if (k != null) {
                   if (localizedProperty != null) {
-                    try {
-                      final map = localizedProperty
-                        ..putIfAbsent(k, () => value);
+                    final map = localizedProperty..putIfAbsent(k, () => value);
 
-                      action['Localized${extraction['propertyName']}'] = map;
-                    } on Exception catch (e) {
-                      stderr.write(e);
-                    }
+                    action['Localized$n'] = map;
                   } else {
-                    action['Localized${extraction['propertyName']}'] =
-                        <String, dynamic>{
-                          k: value,
-                        };
+                    action['Localized$n'] = <String, dynamic>{
+                      k: value,
+                    };
                   }
                 }
-              } else {
-                action[key] = value;
               }
+            } else {
+              action[key] = value;
             }
           }
         }
+      }
 
-        if (action.isNotEmpty) {
-          actions.add(action);
-        }
+      if (action.isNotEmpty) {
+        actions.add(action);
       }
-      if (actions.isNotEmpty) {
-        entries['DesktopActions'] = actions;
-      }
-    } on Exception catch (e) {
-      stderr.write(e);
+    }
+    if (actions.isNotEmpty) {
+      entries['DesktopActions'] = actions;
     }
 
     try {
       return ApplicationDesktopEntry.fromJson(entries);
-    } on Exception catch (e) {
-      stderr.write(e);
+      // ignore: avoid_catches_without_on_clauses we don't know what error could be thrown
+    } catch (e, stackTrace) {
+      stderr.write('parse error $e \n$stackTrace');
       return null;
     }
   }

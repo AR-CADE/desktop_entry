@@ -26,19 +26,15 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     Emitter<ApplicationState> emit,
   ) async {
     emit(state.copyWith(status: .loading));
-    try {
-      final applications = await repository.getApplications(
-        directories,
-      );
+    final applications = await repository.getApplications(
+      directories,
+    );
 
-      return emit(
-        state.copyWith(
-          status: .ready,
-          applications: applications,
-        ),
-      );
-    } on Exception catch (e) {
-      emit(state.copyWith(status: .error, message: e.toString()));
-    }
+    return emit(
+      state.copyWith(
+        status: .ready,
+        applications: applications,
+      ),
+    );
   }
 }

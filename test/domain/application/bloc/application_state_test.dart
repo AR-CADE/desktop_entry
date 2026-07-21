@@ -57,15 +57,15 @@ void main() {
       expect(
         ApplicationState.initial()
             .copyWith(
-              status: ApplicationStatus.error,
+              status: ApplicationStatus.ready,
               applications: [],
-              message: 'error_test',
+              message: 'test',
             )
             .props,
         equals([
-          ApplicationStatus.error,
+          ApplicationStatus.ready,
           <ApplicationDesktopEntry>[],
-          'error_test',
+          'test',
         ]),
       );
     });
