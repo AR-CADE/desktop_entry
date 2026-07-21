@@ -25,11 +25,11 @@ Name[zh_CN]=行动 1 zh_CN
 Name[zh_TW]=行动 1 zh_TW
 Name[ko]=액션1 KO
 Name[jp]=アクション1 JP
+Name[wo]=Jëf 1 WO
 Name[es]=Acción 1 ES
 Name[it]=Azione 1 IT
 Name[pt]=Ação 1 PT
 Name[de]=Aktion 1 DE
-Name[wo]=Jëf 1 WO
 Exec=ls
 
 [Desktop Action Action2]
@@ -41,9 +41,9 @@ Name[zh_CN]=行动 2 zh_CN
 Name[zh_TW]=行动 2 zh_TW
 Name[ko]=액션2 KO
 Name[jp]=アクション2 JP
+Name[wo]=Jëf 2 WO
 Name[es]=Acción 2 ES
 Name[it]=Azione 2 IT
 Name[pt]=Ação 2 PT
 Name[de]=Aktion 2 DE
-Name[wo]=Jëf 2 WO
 Exec=ls
