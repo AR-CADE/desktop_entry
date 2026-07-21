@@ -1,10 +1,10 @@
 name: desktop_entry
 description: A Dart library that implements the Desktop Entry Specification.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/AR-CADE/desktop_entry
 
 environment:
-  sdk: ">=3.12.2 < 4.0.0"
+  sdk: ">=3.12.2 <4.0.0"
 
 # Add regular dependencies here.
 dependencies:
