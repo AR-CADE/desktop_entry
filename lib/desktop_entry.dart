@@ -2,6 +2,8 @@
 ///
 library;
 
+export 'src/core/helper.dart';
+export 'src/core/icon_theme.dart';
 export 'src/data/models/application_desktop_entry.dart';
 export 'src/data/models/desktop_entry.dart';
 export 'src/data/models/directory_desktop_entry.dart';
