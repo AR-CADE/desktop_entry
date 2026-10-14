@@ -59,18 +59,9 @@ void main() {
       final type = json['Type'];
       final url = json['Url'];
 
-      expect(
-        name,
-        'name_test',
-      );
-      expect(
-        url,
-        'url_test',
-      );
-      expect(
-        type,
-        'type_test',
-      );
+      expect(name, 'name_test');
+      expect(url, 'url_test');
+      expect(type, 'type_test');
 
       json.forEach((key, value) {
         if (key != 'Name' && key != 'Type' && key != 'Url') {
@@ -86,39 +77,27 @@ void main() {
         'Url': 'url_test',
       };
       final link = LinkDesktopEntry.fromJson(json);
-      expect(
-        {
-          'Type': 'type_test',
-          'Version': null,
-          'Name': 'name_test',
-          'LocalizedName': null,
-          'GenericName': null,
-          'LocalizedGenericName': null,
-          'NoDisplay': null,
-          'Comment': null,
-          'LocalizedComment': null,
-          'Icon': null,
-          'Hidden': null,
-          'OnlyShowIn': null,
-          'NotShowIn': null,
-          'DBusActivatable': null,
-          'Implements': null,
-          'Url': 'url_test',
-        },
-        link.toJson(),
-      );
-      expect(
-        link.name,
-        'name_test',
-      );
-      expect(
-        link.type,
-        'type_test',
-      );
-      expect(
-        link.url,
-        'url_test',
-      );
+      expect({
+        'Type': 'type_test',
+        'Version': null,
+        'Name': 'name_test',
+        'LocalizedName': null,
+        'GenericName': null,
+        'LocalizedGenericName': null,
+        'NoDisplay': null,
+        'Comment': null,
+        'LocalizedComment': null,
+        'Icon': null,
+        'Hidden': null,
+        'OnlyShowIn': null,
+        'NotShowIn': null,
+        'DBusActivatable': null,
+        'Implements': null,
+        'Url': 'url_test',
+      }, link.toJson());
+      expect(link.name, 'name_test');
+      expect(link.type, 'type_test');
+      expect(link.url, 'url_test');
     });
 
     test('copyWith', () {
@@ -142,10 +121,7 @@ void main() {
       expect(copied3.type, 'type_test');
       expect(copied3.url, 'url_test');
 
-      expect(
-        link.copyWith(),
-        link,
-      );
+      expect(link.copyWith(), link);
     });
   });
 }

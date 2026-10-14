@@ -7,17 +7,12 @@ void main() {
       test('supports value comparisons', () {
         expect(
           const ApplicationGetListRequested(),
-          equals(
-            const ApplicationGetListRequested(),
-          ),
+          equals(const ApplicationGetListRequested()),
         );
       });
 
       test('props are correct', () {
-        expect(
-          const ApplicationGetListRequested().props,
-          equals([]),
-        );
+        expect(const ApplicationGetListRequested().props, equals([]));
       });
     });
   });

@@ -57,10 +57,5 @@ class DesktopAction extends Equatable {
   }
 
   @override
-  List<Object?> get props => [
-    name,
-    localizedName,
-    icon,
-    exec,
-  ];
+  List<Object?> get props => [name, localizedName, icon, exec];
 }

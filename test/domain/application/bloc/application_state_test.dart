@@ -6,10 +6,7 @@ void main() {
   group('ApplicationState', () {
     group('ApplicationState.initial', () {
       test('supports value comparisons', () {
-        expect(
-          ApplicationState.initial(),
-          equals(ApplicationState.initial()),
-        );
+        expect(ApplicationState.initial(), equals(ApplicationState.initial()));
       });
 
       test('props are correct', () {
@@ -62,11 +59,7 @@ void main() {
               message: 'test',
             )
             .props,
-        equals([
-          ApplicationStatus.ready,
-          <ApplicationDesktopEntry>[],
-          'test',
-        ]),
+        equals([ApplicationStatus.ready, <ApplicationDesktopEntry>[], 'test']),
       );
     });
   });

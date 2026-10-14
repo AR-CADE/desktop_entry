@@ -33,19 +33,14 @@ void main() {
 
     test('fromJson throws FormatException for unknown type', () {
       expect(
-        () => DesktopEntry.fromJson(const {
-          'Type': 'Unknown',
-          'Name': 'Test',
-        }),
+        () => DesktopEntry.fromJson(const {'Type': 'Unknown', 'Name': 'Test'}),
         throwsFormatException,
       );
     });
 
     test('fromJson throws FormatException for missing type', () {
       expect(
-        () => DesktopEntry.fromJson(const {
-          'Name': 'Test',
-        }),
+        () => DesktopEntry.fromJson(const {'Name': 'Test'}),
         throwsFormatException,
       );
     });

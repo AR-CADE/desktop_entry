@@ -39,9 +39,7 @@ List<String> getDefaultApplicationDirectories() {
 
   final xdgDataDirs = getXdgDataDirs();
   if (xdgDataDirs != null) {
-    final dirs = xdgDataDirs.map(
-      (dir) => '$dir/applications',
-    );
+    final dirs = xdgDataDirs.map((dir) => '$dir/applications');
 
     for (final directory in dirs) {
       final dir = Directory(directory);
@@ -105,49 +103,23 @@ Future<void> main() async {
   if (applications != null) {
     for (final app in applications) {
       stdout
-        ..write(
-          '\nApplications: ${app.name}\n',
-        )
-        ..write(
-          'icon: ${app.icon}\n',
-        )
-        ..write(
-          'localizedName: ${app.localizedName}\n',
-        )
-        ..write(
-          'mimeType: ${app.mimeType}\n',
-        )
-        ..write(
-          'keywords: ${app.keywords}\n',
-        )
-        ..write(
-          'noDisplay: ${app.noDisplay}\n',
-        )
-        ..write(
-          'exec: ${app.exec}\n',
-        )
-        ..write(
-          'tryExec: ${app.tryExec}\n',
-        )
-        ..write(
-          'actions: ${app.actions}\n',
-        );
+        ..write('\nApplications: ${app.name}\n')
+        ..write('icon: ${app.icon}\n')
+        ..write('localizedName: ${app.localizedName}\n')
+        ..write('mimeType: ${app.mimeType}\n')
+        ..write('keywords: ${app.keywords}\n')
+        ..write('noDisplay: ${app.noDisplay}\n')
+        ..write('exec: ${app.exec}\n')
+        ..write('tryExec: ${app.tryExec}\n')
+        ..write('actions: ${app.actions}\n');
 
       if (app.desktopActions?.isNotEmpty ?? false) {
         for (final action in app.desktopActions!) {
           stdout
-            ..write(
-              'action Name: ${action.name}\n',
-            )
-            ..write(
-              'action LocalizedName: ${action.localizedName}\n',
-            )
-            ..write(
-              'action Icon: ${action.icon}\n',
-            )
-            ..write(
-              'action Exec: ${action.exec}\n',
-            );
+            ..write('action Name: ${action.name}\n')
+            ..write('action LocalizedName: ${action.localizedName}\n')
+            ..write('action Icon: ${action.icon}\n')
+            ..write('action Exec: ${action.exec}\n');
         }
       }
     }

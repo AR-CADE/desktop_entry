@@ -9,10 +9,8 @@ part 'application_event.dart';
 part 'application_state.dart';
 
 class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
-  ApplicationBloc({
-    required this.repository,
-    required this.directories,
-  }) : super(ApplicationState.initial()) {
+  ApplicationBloc({required this.repository, required this.directories})
+    : super(ApplicationState.initial()) {
     on<ApplicationGetListRequested>(_onGetList);
 
     add(const ApplicationGetListRequested());
@@ -26,15 +24,8 @@ class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
     Emitter<ApplicationState> emit,
   ) async {
     emit(state.copyWith(status: .loading));
-    final applications = await repository.getApplications(
-      directories,
-    );
+    final applications = await repository.getApplications(directories);
 
-    return emit(
-      state.copyWith(
-        status: .ready,
-        applications: applications,
-      ),
-    );
+    return emit(state.copyWith(status: .ready, applications: applications));
   }
 }

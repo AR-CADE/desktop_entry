@@ -34,10 +34,8 @@ void main() {
           () => repository.getApplications(any()),
         ).thenAnswer((_) async => <ApplicationDesktopEntry>[]);
       },
-      build: () => ApplicationBloc(
-        repository: repository,
-        directories: const ['/test'],
-      ),
+      build: () =>
+          ApplicationBloc(repository: repository, directories: const ['/test']),
       expect: () => const [
         ApplicationState(status: ApplicationStatus.loading),
         ApplicationState(status: ApplicationStatus.ready, applications: []),

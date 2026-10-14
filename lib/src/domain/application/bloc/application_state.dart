@@ -1,10 +1,6 @@
 part of 'application_bloc.dart';
 
-enum ApplicationStatus {
-  initial,
-  ready,
-  loading,
-}
+enum ApplicationStatus { initial, ready, loading }
 
 class ApplicationState extends Equatable {
   const ApplicationState({
@@ -13,9 +9,8 @@ class ApplicationState extends Equatable {
     this.message,
   });
 
-  factory ApplicationState.initial() => const ApplicationState(
-    status: ApplicationStatus.initial,
-  );
+  factory ApplicationState.initial() =>
+      const ApplicationState(status: ApplicationStatus.initial);
 
   final ApplicationStatus status;
   final List<ApplicationDesktopEntry>? applications;

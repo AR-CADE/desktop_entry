@@ -65,9 +65,7 @@ class ApplicationRepository {
 
                   entries['Localized$n'] = map;
                 } else {
-                  entries['Localized$n'] = <String, dynamic>{
-                    k: value,
-                  };
+                  entries['Localized$n'] = <String, dynamic>{k: value};
                 }
               }
             }
@@ -105,9 +103,7 @@ class ApplicationRepository {
 
                     action['Localized$n'] = map;
                   } else {
-                    action['Localized$n'] = <String, dynamic>{
-                      k: value,
-                    };
+                    action['Localized$n'] = <String, dynamic>{k: value};
                   }
                 }
               }
@@ -130,7 +126,7 @@ class ApplicationRepository {
       return ApplicationDesktopEntry.fromJson(entries);
       // ignore: avoid_catches_without_on_clauses we don't know what error could be thrown
     } catch (e, stackTrace) {
-      stderr.write('parse error $e \n$stackTrace');
+      stderr.writeln('\nparse error $e \n$stackTrace');
       return null;
     }
   }

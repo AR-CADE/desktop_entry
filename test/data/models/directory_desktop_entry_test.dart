@@ -33,35 +33,20 @@ void main() {
 
     test('equality', () {
       expect(
-        const DirectoryDesktopEntry(
-          name: 'name_test',
-          type: 'type_test',
-        ),
-        const DirectoryDesktopEntry(
-          name: 'name_test',
-          type: 'type_test',
-        ),
+        const DirectoryDesktopEntry(name: 'name_test', type: 'type_test'),
+        const DirectoryDesktopEntry(name: 'name_test', type: 'type_test'),
       );
     });
 
     test('serialize', () {
-      const link = DirectoryDesktopEntry(
-        name: 'name_test',
-        type: 'type_test',
-      );
+      const link = DirectoryDesktopEntry(name: 'name_test', type: 'type_test');
       final json = link.toJson();
       final name = json['Name'];
       final type = json['Type'];
 
-      expect(
-        name,
-        'name_test',
-      );
+      expect(name, 'name_test');
 
-      expect(
-        type,
-        'type_test',
-      );
+      expect(type, 'type_test');
 
       json.forEach((key, value) {
         if (key != 'Name' && key != 'Type') {
@@ -71,39 +56,27 @@ void main() {
     });
 
     test('deserialize', () {
-      final json = {
-        'Name': 'name_test',
-        'Type': 'type_test',
-      };
+      final json = {'Name': 'name_test', 'Type': 'type_test'};
       final link = DirectoryDesktopEntry.fromJson(json);
-      expect(
-        {
-          'Type': 'type_test',
-          'Version': null,
-          'Name': 'name_test',
-          'LocalizedName': null,
-          'GenericName': null,
-          'LocalizedGenericName': null,
-          'NoDisplay': null,
-          'Comment': null,
-          'LocalizedComment': null,
-          'Icon': null,
-          'Hidden': null,
-          'OnlyShowIn': null,
-          'NotShowIn': null,
-          'DBusActivatable': null,
-          'Implements': null,
-        },
-        link.toJson(),
-      );
-      expect(
-        link.name,
-        'name_test',
-      );
-      expect(
-        link.type,
-        'type_test',
-      );
+      expect({
+        'Type': 'type_test',
+        'Version': null,
+        'Name': 'name_test',
+        'LocalizedName': null,
+        'GenericName': null,
+        'LocalizedGenericName': null,
+        'NoDisplay': null,
+        'Comment': null,
+        'LocalizedComment': null,
+        'Icon': null,
+        'Hidden': null,
+        'OnlyShowIn': null,
+        'NotShowIn': null,
+        'DBusActivatable': null,
+        'Implements': null,
+      }, link.toJson());
+      expect(link.name, 'name_test');
+      expect(link.type, 'type_test');
     });
 
     test('copyWith', () {
@@ -126,10 +99,7 @@ void main() {
       expect(copied3.type, 'type_test');
       expect(copied3.icon, null);
 
-      expect(
-        directory.copyWith(),
-        directory,
-      );
+      expect(directory.copyWith(), directory);
     });
   });
 }

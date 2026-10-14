@@ -48,14 +48,8 @@ void main() {
 
     test('equality', () {
       expect(
-        const ApplicationDesktopEntry(
-          name: 'name_test',
-          type: 'type_test',
-        ),
-        const ApplicationDesktopEntry(
-          name: 'name_test',
-          type: 'type_test',
-        ),
+        const ApplicationDesktopEntry(name: 'name_test', type: 'type_test'),
+        const ApplicationDesktopEntry(name: 'name_test', type: 'type_test'),
       );
     });
 
@@ -68,14 +62,8 @@ void main() {
       final name = json['Name'];
       final type = json['Type'];
 
-      expect(
-        name,
-        'name_test',
-      );
-      expect(
-        type,
-        'type_test',
-      );
+      expect(name, 'name_test');
+      expect(type, 'type_test');
 
       json.forEach((key, value) {
         if (key != 'Name' && key != 'Type') {
@@ -85,54 +73,42 @@ void main() {
     });
 
     test('deserialize', () {
-      final json = {
-        'Name': 'name_test',
-        'Type': 'type_test',
-      };
+      final json = {'Name': 'name_test', 'Type': 'type_test'};
       final application = ApplicationDesktopEntry.fromJson(json);
-      expect(
-        {
-          'Type': 'type_test',
-          'Version': null,
-          'Name': 'name_test',
-          'LocalizedName': null,
-          'GenericName': null,
-          'LocalizedGenericName': null,
-          'NoDisplay': null,
-          'Comment': null,
-          'LocalizedComment': null,
-          'Icon': null,
-          'Hidden': null,
-          'OnlyShowIn': null,
-          'NotShowIn': null,
-          'DBusActivatable': null,
-          'Implements': null,
-          'TryExec': null,
-          'Exec': null,
-          'Path': null,
-          'Terminal': null,
-          'Actions': null,
-          'MimeType': null,
-          'Categories': null,
-          'Keywords': null,
-          'LocalizedKeywords': null,
-          'StartupNotify': null,
-          'StartupWMClass': null,
-          'PrefersNonDefaultGPU': null,
-          'SingleMainWindow': null,
-          'DesktopNames': null,
-          'DesktopActions': null,
-        },
-        application.toJson(),
-      );
-      expect(
-        application.name,
-        'name_test',
-      );
-      expect(
-        application.type,
-        'type_test',
-      );
+      expect({
+        'Type': 'type_test',
+        'Version': null,
+        'Name': 'name_test',
+        'LocalizedName': null,
+        'GenericName': null,
+        'LocalizedGenericName': null,
+        'NoDisplay': null,
+        'Comment': null,
+        'LocalizedComment': null,
+        'Icon': null,
+        'Hidden': null,
+        'OnlyShowIn': null,
+        'NotShowIn': null,
+        'DBusActivatable': null,
+        'Implements': null,
+        'TryExec': null,
+        'Exec': null,
+        'Path': null,
+        'Terminal': null,
+        'Actions': null,
+        'MimeType': null,
+        'Categories': null,
+        'Keywords': null,
+        'LocalizedKeywords': null,
+        'StartupNotify': null,
+        'StartupWMClass': null,
+        'PrefersNonDefaultGPU': null,
+        'SingleMainWindow': null,
+        'DesktopNames': null,
+        'DesktopActions': null,
+      }, application.toJson());
+      expect(application.name, 'name_test');
+      expect(application.type, 'type_test');
     });
 
     test('copyWith', () {
@@ -155,10 +131,7 @@ void main() {
       expect(copied3.type, 'type_test');
       expect(copied3.icon, null);
 
-      expect(
-        application.copyWith(),
-        application,
-      );
+      expect(application.copyWith(), application);
     });
   });
 }
