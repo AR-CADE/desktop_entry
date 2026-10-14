@@ -29,7 +29,7 @@ Map<String, dynamic> _extractPropertyNameAndKey(String input) {
 
 @immutable
 class ApplicationRepository {
-  const ApplicationRepository();
+  const new();
 
   ApplicationDesktopEntry? getApplication(String filePath) {
     final file = File(filePath);

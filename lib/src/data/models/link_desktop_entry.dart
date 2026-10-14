@@ -7,7 +7,7 @@ part 'link_desktop_entry.g.dart';
 /// Type 2
 @JsonSerializable(fieldRename: FieldRename.pascal)
 class LinkDesktopEntry extends DesktopEntry {
-  const LinkDesktopEntry({
+  const new({
     required this.url,
     required super.name,
     required super.type,
@@ -26,7 +26,7 @@ class LinkDesktopEntry extends DesktopEntry {
     super.localizedName,
   });
 
-  factory LinkDesktopEntry.fromJson(Map<String, dynamic> json) =>
+  factory fromJson(Map<String, dynamic> json) =>
       _$LinkDesktopEntryFromJson(json);
 
   /// If entry is Link type, the URL to access.

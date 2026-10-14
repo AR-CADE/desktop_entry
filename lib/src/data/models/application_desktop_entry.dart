@@ -8,7 +8,7 @@ part 'application_desktop_entry.g.dart';
 /// Type 1
 @JsonSerializable(fieldRename: FieldRename.pascal)
 class ApplicationDesktopEntry extends DesktopEntry {
-  const ApplicationDesktopEntry({
+  const new({
     required super.name,
     required super.type,
     super.comment,
@@ -41,7 +41,7 @@ class ApplicationDesktopEntry extends DesktopEntry {
     this.desktopActions,
   });
 
-  factory ApplicationDesktopEntry.fromJson(Map<String, dynamic> json) =>
+  factory fromJson(Map<String, dynamic> json) =>
       _$ApplicationDesktopEntryFromJson(json);
 
   /// Path to an executable file on disk used to determine if the program is

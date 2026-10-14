@@ -6,7 +6,7 @@ import 'package:equatable/equatable.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 abstract class DesktopEntry extends Equatable {
-  const DesktopEntry({
+  const new({
     required this.name,
     required this.type,
     this.comment,
@@ -24,7 +24,7 @@ abstract class DesktopEntry extends Equatable {
     this.localizedName,
   });
 
-  factory DesktopEntry.fromJson(Map<String, dynamic> json) {
+  factory fromJson(Map<String, dynamic> json) {
     if (json.containsKey('Type')) {
       final type = json['Type'] as String?;
 

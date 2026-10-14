@@ -9,7 +9,7 @@ part 'application_event.dart';
 part 'application_state.dart';
 
 class ApplicationBloc extends Bloc<ApplicationEvent, ApplicationState> {
-  ApplicationBloc({required this.repository, required this.directories})
+  new({required this.repository, required this.directories})
     : super(ApplicationState.initial()) {
     on<ApplicationGetListRequested>(_onGetList);
 

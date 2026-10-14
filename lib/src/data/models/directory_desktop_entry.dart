@@ -7,7 +7,7 @@ part 'directory_desktop_entry.g.dart';
 /// Type 3
 @JsonSerializable(fieldRename: FieldRename.pascal)
 class DirectoryDesktopEntry extends DesktopEntry {
-  const DirectoryDesktopEntry({
+  const new({
     required super.name,
     required super.type,
     super.comment,
@@ -25,7 +25,7 @@ class DirectoryDesktopEntry extends DesktopEntry {
     super.localizedName,
   });
 
-  factory DirectoryDesktopEntry.fromJson(Map<String, dynamic> json) =>
+  factory fromJson(Map<String, dynamic> json) =>
       _$DirectoryDesktopEntryFromJson(json);
 
   @override

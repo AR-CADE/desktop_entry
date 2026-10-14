@@ -69,7 +69,7 @@ void main() {
 }
 
 class DummyDesktopEntry extends DesktopEntry {
-  const DummyDesktopEntry()
+  const new()
     : super(
         name: 'Dummy',
         type: 'DummyType',

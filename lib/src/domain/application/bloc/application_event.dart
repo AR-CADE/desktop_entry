@@ -1,12 +1,12 @@
 part of 'application_bloc.dart';
 
 sealed class ApplicationEvent extends Equatable {
-  const ApplicationEvent();
+  const new();
 }
 
 @visibleForTesting
 final class ApplicationGetListRequested extends ApplicationEvent {
-  const ApplicationGetListRequested();
+  const new();
 
   @override
   List<Object> get props => [];

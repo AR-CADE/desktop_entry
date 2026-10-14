@@ -6,15 +6,9 @@ part 'desktop_action.g.dart';
 /// Type 1
 @JsonSerializable(fieldRename: FieldRename.pascal)
 class DesktopAction extends Equatable {
-  const DesktopAction({
-    required this.name,
-    this.localizedName,
-    this.icon,
-    this.exec,
-  });
+  const new({required this.name, this.localizedName, this.icon, this.exec});
 
-  factory DesktopAction.fromJson(Map<String, dynamic> json) =>
-      _$DesktopActionFromJson(json);
+  factory fromJson(Map<String, dynamic> json) => _$DesktopActionFromJson(json);
 
   /// Label that will be shown to the user.
   /// Since actions are always shown in the context of a specific application

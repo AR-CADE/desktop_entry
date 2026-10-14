@@ -3,13 +3,9 @@ part of 'application_bloc.dart';
 enum ApplicationStatus { initial, ready, loading }
 
 class ApplicationState extends Equatable {
-  const ApplicationState({
-    required this.status,
-    this.applications,
-    this.message,
-  });
+  const new({required this.status, this.applications, this.message});
 
-  factory ApplicationState.initial() =>
+  factory initial() =>
       const ApplicationState(status: ApplicationStatus.initial);
 
   final ApplicationStatus status;

@@ -5,7 +5,7 @@ import 'package:desktop_entry/src/domain/application/bloc/application_bloc.dart'
 import 'package:mocktail/mocktail.dart';
 import 'package:test/test.dart';
 
-class MockApplicationRepository extends Mock implements ApplicationRepository {}
+class MockApplicationRepository extends Mock implements ApplicationRepository;
 
 void main() {
   group('ApplicationBloc', () {
@@ -30,9 +30,8 @@ void main() {
     blocTest<ApplicationBloc, ApplicationState>(
       'emits [loading, ready] when getApplications',
       setUp: () {
-        when(
-          () => repository.getApplications(any()),
-        ).thenAnswer((_) async => <ApplicationDesktopEntry>[]);
+        when(() => repository.getApplications(any()))
+            .thenAnswer((_) async => <ApplicationDesktopEntry>[]);
       },
       build: () =>
           ApplicationBloc(repository: repository, directories: const ['/test']),
