@@ -4,7 +4,6 @@ sealed class ApplicationEvent extends Equatable {
   const new();
 }
 
-@visibleForTesting
 final class ApplicationGetListRequested extends ApplicationEvent {
   const new();
 
