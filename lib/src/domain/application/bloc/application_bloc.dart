@@ -3,7 +3,6 @@ import 'package:desktop_entry/src/data/models/application_desktop_entry.dart';
 import 'package:desktop_entry/src/data/repositories/application/application_repository.dart'
     show ApplicationRepository;
 import 'package:equatable/equatable.dart' show Equatable;
-import 'package:meta/meta.dart';
 
 part 'application_event.dart';
 part 'application_state.dart';
